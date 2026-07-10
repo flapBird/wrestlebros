@@ -83,11 +83,13 @@ export const siteConfig = {
      * When true, sidebar and rectangle ad slots appear on the page.
      */
     enabled: false,
+    /** AdSense publisher ID from env, e.g. ca-pub-xxxxxxxxxxxxxx. Empty when unset. */
+    clientId: process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || "",
   },
 
   analytics: {
     /** Google Analytics 4 measurement ID, e.g. G-XXXXXXXX. Leave empty to skip GA. */
-    gaId: "",
+    gaId: process.env.NEXT_PUBLIC_GA_ID || "",
     /** Google Search Console verification code. Leave empty to skip. */
     gscVerification: "",
   },

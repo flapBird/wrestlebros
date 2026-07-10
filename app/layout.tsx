@@ -62,6 +62,16 @@ export default function RootLayout({
             </Script>
           </>
         )}
+
+        {/* Google AdSense — only loaded when client ID is set */}
+        {siteConfig.ads.clientId && (
+          <Script
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${siteConfig.ads.clientId}`}
+            strategy="beforeInteractive"
+            crossOrigin="anonymous"
+          />
+        )}
+
       </body>
     </html>
   );
