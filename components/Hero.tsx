@@ -4,6 +4,7 @@ import GameEmbed from "./GameEmbed";
 export default function Hero() {
   return (
     <section className="hero-gradient relative overflow-hidden pt-8 pb-4 sm:pt-10 sm:pb-6 px-4">
+      <h1 className="sr-only">Play Wrestle Bros Online - Wrestling Bros Free Browser Game</h1>
       {/* Floating blob decorations */}
       <div className="blob-decoration blob-decoration--1" />
       <div className="blob-decoration blob-decoration--2" />

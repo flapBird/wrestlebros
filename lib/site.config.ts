@@ -11,14 +11,14 @@ export const siteConfig = {
 
   seo: {
     /** Homepage <title>. Used as-is on the homepage. */
-    title: "Play Wrestle Bros Online Free | Wrestling Game",
+    title: "Play Wrestle Bros Online Free | Wrestling Bros Game",
 
     /**
      * Homepage meta description, keep under 160 characters.
      * Describe what the game is and that it's free to play online.
      */
     description:
-      "Fight your friends in Wrestle Bros, a physics-based wrestling game with multiple modes, custom characters, and fast-paced arena battles. Free to play in your browser.",
+      "Play Wrestle Bros (also called Wrestling Bros), a physics-based fighting game with multiple modes and custom characters. Free online, no download needed.",
 
     /** Comma-separated keywords for the homepage. */
     keywords: ["wrestle bros", "wrestling game", "2 player wrestling game", "free online wrestling game", "wrestle bros online", "physics wrestling game", "multiplayer wrestling browser game"],
