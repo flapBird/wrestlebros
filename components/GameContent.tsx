@@ -102,7 +102,7 @@ export default function GameContent() {
           into the ropes.
         </p>
 
-        <img src="/wrestlebros-desc-1.jpeg" alt="Wrestle Bros 擂台对战场景" className="w-full rounded-xl shadow-md my-6" loading="lazy" />
+        <img src="/wrestlebros-desc-01.png" alt="Wrestle Bros 擂台对战场景" className="w-full rounded-xl shadow-md my-6" loading="lazy" />
 
         <p className="text-text-dark/70 leading-relaxed">
           Made by Blue Wizard Digital, the same team behind the popular Basket Bros
@@ -128,7 +128,7 @@ export default function GameContent() {
           hide — you have to engage.
         </p>
 
-        <img src="/wrestlebros-desc-2.jpeg" alt="Wrestle Bros 双人摔跤对抗" className="w-full rounded-xl shadow-md my-6" loading="lazy" />
+        <img src="/wrestlebros-desc-02.png" alt="Wrestle Bros 双人摔跤对抗" className="w-full rounded-xl shadow-md my-6" loading="lazy" />
 
         <p className="text-text-dark/70 leading-relaxed mb-4">
           The trick is learning when to attack and when to hold back. A wild

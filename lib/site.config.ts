@@ -38,7 +38,7 @@ export const siteConfig = {
     genre: ["Fighting", "Sports", "Wrestling"],
 
     /** iframe embed URL — must be manually replaced with the real embeddable URL. */
-    embedUrl: "https://www.twoplayergames.org/gameframe/wresle-bros",
+    embedUrl: "https://wrestlebros.io/",
 
     /** Aspect ratio of the embedded game, used to prevent CLS. */
     aspectRatio: "16 / 9",
