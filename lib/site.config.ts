@@ -69,7 +69,7 @@ export const siteConfig = {
 
   contact: {
     /** Contact email shown on /contact and in legal pages. */
-    email: "hello@wrestlebros.xyz",
+    email: "contact@wrestlebros.xyz",
   },
 
   legal: {
