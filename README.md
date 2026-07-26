@@ -1,14 +1,16 @@
 # Wrestle Bros
 
-[Wrestle Bros](https://wrestlebros.xyz/) 是一个基于 Next.js 构建的在线摔跤游戏站点。网站嵌入 Blue Wizard Digital 开发的物理引擎摔跤游戏，支持单人 AI 对战和本地双人对战，无需下载或注册，打开浏览器即可开打。
+网站地址：https://wrestlebros.xyz/
+
+Wrestle Bros 是一个基于 Next.js 构建的在线摔跤游戏站点。网站嵌入 Blue Wizard Digital 开发的物理引擎摔跤游戏，支持单人 AI 对战和本地双人对战，无需下载或注册，打开浏览器即可开打。
 
 ## 技术栈
 
-- **框架:** Next.js 14 (App Router)
-- **语言:** TypeScript
-- **样式:** Tailwind CSS
-- **字体:** Nunito + Quicksand (Google Fonts)
-- **部署:** Vercel
+- 框架：Next.js 14 (App Router)
+- 语言：TypeScript
+- 样式：Tailwind CSS
+- 字体：Nunito + Quicksand (Google Fonts)
+- 部署：Vercel
 
 ## 项目结构
 
@@ -61,14 +63,14 @@ npm run build
 npm run start
 ```
 
-访问 [http://localhost:3000](http://localhost:3000) 预览。
+本地开发访问 http://localhost:3000 预览。
 
 ## 环境变量
 
 复制 `.env.example` 为 `.env.local`，按需填入：
 
 ```
-NEXT_PUBLIC_GA_ID=           # Google Analytics 4 Measurement ID
+NEXT_PUBLIC_GA_ID=            # Google Analytics 4 Measurement ID
 NEXT_PUBLIC_ADSENSE_CLIENT_ID= # Google AdSense Publisher ID
 ```
 
