@@ -1,117 +1,106 @@
-# Game Site Template
+# Wrestle Bros
 
-A reusable Next.js 14 template for building single-game "shell" sites optimized for search engine traffic. Each new game site only requires editing one config file and swapping a few images.
+[Wrestle Bros](https://wrestlebros.xyz/) 是一个基于 Next.js 构建的在线摔跤游戏站点。网站嵌入 Blue Wizard Digital 开发的物理引擎摔跤游戏，支持单人 AI 对战和本地双人对战，无需下载或注册，打开浏览器即可开打。
 
-## Quick Start (5 Minutes)
+## 技术栈
 
-### 1. Create a new repo from this template
+- **框架:** Next.js 14 (App Router)
+- **语言:** TypeScript
+- **样式:** Tailwind CSS
+- **字体:** Nunito + Quicksand (Google Fonts)
+- **部署:** Vercel
 
-- On GitHub, click **Use this template** → **Create a new repository**
-- Clone your new repo locally
+## 项目结构
 
-### 2. Configure your site
+```
+├── app/                      # 页面路由
+│   ├── layout.tsx            # 全局布局（Header、Footer、GA、AdSense）
+│   ├── page.tsx              # 首页（游戏嵌入 + 介绍内容）
+│   ├── about/                # 关于页面
+│   ├── contact/              # 联系页面
+│   ├── privacy/              # 隐私政策
+│   ├── terms/                # 服务条款
+│   ├── robots.ts             # robots.txt 配置
+│   ├── sitemap.ts            # sitemap.xml 配置
+│   └── globals.css           # 全局样式
+├── components/               # UI 组件
+│   ├── Header.tsx            # 顶部导航栏
+│   ├── Hero.tsx              # 游戏区域（标题 + 嵌入容器）
+│   ├── GameEmbed.tsx         # 游戏 iframe 嵌入
+│   ├── GameContent.tsx       # 游戏介绍内容（玩法、特色、FAQ）
+│   ├── Footer.tsx            # 页脚
+│   ├── SidebarLayout.tsx     # 内容区布局（带广告位预留）
+│   ├── AdSlot.tsx            # 广告位占位组件
+│   ├── LegalPage.tsx         # 法律页面布局模板
+│   └── SchemaMarkup.tsx      # JSON-LD 结构化数据
+├── lib/
+│   ├── site.config.ts        # 站点配置（域名、游戏信息、主题色）
+│   └── seo.ts                # SEO 工具函数
+├── public/                   # 静态资源
+│   ├── favicon.ico
+│   ├── og-image.png
+│   ├── wrestlebros-desc-1.jpeg
+│   ├── wrestlebros-desc-2.jpeg
+│   └── wrestlebros-desc-3.jpeg
+└── .env.example              # 环境变量模板
+```
 
-Edit **`lib/site.config.ts`** — this is the only file you need to touch for content:
-
-| Field | What to change |
-|-------|----------------|
-| `siteName` | Your site's display name |
-| `domain` | Full domain, e.g. `https://mygame.com` (no trailing slash) |
-| `seo.title` | Homepage `<title>` tag |
-| `seo.description` | Meta description (keep under 160 chars) |
-| `seo.keywords` | Comma-separated keyword list |
-| `game.name` | The game's name |
-| `game.genre` | Genre array for JSON-LD, e.g. `["Sports", "Basketball"]` |
-| `game.embedUrl` | The real iframe embed URL — must be replaced |
-| `game.aspectRatio` | Aspect ratio of the game (default `"16 / 9"`) |
-| `game.ageRating` | Age rating label |
-| `game.sourceAttribution` | Developer credit line |
-| `contact.email` | Your contact email |
-| `legal.lastUpdated` | Date the legal pages were last reviewed |
-
-### 3. Replace placeholder images
-
-Replace these files in `public/`:
-
-- `cover.jpg` — Game cover / launch screen image
-- `og-image.png` — Social sharing image (1200×630px)
-- `favicon.ico` — Browser tab icon
-
-### 4. Customize page content
-
-Look for `PLACEHOLDER:` markers in:
-- `app/page.tsx` — Game introduction sections
-- `app/about/page.tsx` — About page
-
-Always write unique content per game site to avoid duplicate-content penalties.
-
-### 5. Run locally
+## 快速开始
 
 ```bash
+# 安装依赖
 npm install
+
+# 本地开发
 npm run dev
+
+# 构建
+npm run build
+
+# 生产模式启动
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to preview.
+访问 [http://localhost:3000](http://localhost:3000) 预览。
 
-### 6. Deploy to Vercel
+## 环境变量
 
-**Recommended (GitHub integration):**
-1. In Vercel, click **New Project** → import your repo
-2. Framework Preset auto-detects Next.js — leave defaults
-3. Add environment variables from `.env.example` if needed
-4. Under **Domains**, bind your domain
-5. Deploy
+复制 `.env.example` 为 `.env.local`，按需填入：
 
-**CLI alternative:**
-```bash
-npm i -g vercel
-vercel login
-vercel
-vercel --prod
+```
+NEXT_PUBLIC_GA_ID=           # Google Analytics 4 Measurement ID
+NEXT_PUBLIC_ADSENSE_CLIENT_ID= # Google AdSense Publisher ID
 ```
 
-### 7. Submit to Google Search Console
+## 部署
 
-1. Go to [Google Search Console](https://search.google.com/search-console)
-2. Add property using domain verification
-3. Submit `sitemap.xml` (e.g. `https://your-domain.com/sitemap.xml`)
+推荐使用 Vercel 部署：
 
----
+1. 将仓库导入 Vercel
+2. Framework Preset 自动选择 Next.js
+3. 在项目设置中添加环境变量
+4. 绑定域名后部署
 
-## SEO Checklist
+## 自定义
 
-- [ ] Every page has a unique `<title>` in the correct format
-- [ ] Every page `description` is under 160 characters and unique
-- [ ] Every page has a canonical URL
-- [ ] Open Graph / Twitter Card tags verified (use [opengraph.xyz](https://www.opengraph.xyz/))
-- [ ] Homepage `VideoGame` JSON-LD passes [Rich Results Test](https://search.google.com/test/rich-results)
-- [ ] `sitemap.xml` and `robots.txt` are accessible
-- [ ] Lighthouse mobile performance score ≥ 80
-- [ ] Mobile: game starts on tap, no horizontal scroll
-- [ ] All placeholder images replaced with real assets
-- [ ] Google Search Console verified and sitemap submitted
+### 配色
 
-## AdSense (Post-Launch)
+主题色在 `lib/site.config.ts` 的 `theme` 中定义：
 
-1. Keep `ads.enabled: false` until AdSense is approved
-2. Site should have 2+ weeks of stable traffic before applying
-3. Ensure Privacy Policy and Terms pages are accessible
-4. After approval:
-   - Replace placeholder in `components/AdSlot.tsx` with real `<ins class="adsbygoogle">`
-   - Set `ads.enabled: true` in `lib/site.config.ts`
+- `primary` — 主色（按钮、链接高亮）
+- `secondary` — 辅色
+- `background` — 页面背景
+- `surface` — 内容面板背景
+- `textDark` — 正文文字色
 
-## Tech Stack
+### 图片
 
-- Next.js 14 (App Router)
-- TypeScript
-- Tailwind CSS
-- Google Fonts (Nunito + Quicksand)
-- Vercel deployment
+替换 `public/` 下的图片文件，并更新 `lib/site.config.ts` 中的 `coverImage` 路径。
 
-## Notes
+### 游戏介绍
 
-- This template supports iframe-embedded games only (no SWF/Ruffle)
-- English only; all copy is centralized in `lib/site.config.ts` for future i18n
-- Ad slots are placeholder only by default; real AdSense code must be added post-approval
-- Always verify iframe embed permissions with the game developer and maintain visible source attribution
+介绍内容集中在 `components/GameContent.tsx`，包含简介、玩法说明、操作按键、游戏特色和 FAQ。
+
+## License
+
+MIT
