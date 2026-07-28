@@ -19,10 +19,13 @@ export function buildMetadata({ title, description, path }: PageSeoInput): Metad
       : siteConfig.siteName;
   const pageDescription = description ?? siteConfig.seo.description;
   const canonical = `${siteConfig.domain}${path}`;
+  const socialImage = `${siteConfig.domain}${siteConfig.seo.ogImage}`;
 
   return {
+    metadataBase: new URL(siteConfig.domain),
     title: pageTitle,
     description: pageDescription,
+    keywords: [...siteConfig.seo.keywords],
     alternates: {
       canonical,
     },
@@ -33,9 +36,10 @@ export function buildMetadata({ title, description, path }: PageSeoInput): Metad
       siteName: siteConfig.siteName,
       images: [
         {
-          url: siteConfig.seo.ogImage,
+          url: socialImage,
           width: 1200,
           height: 630,
+          alt: "Wrestle Bros browser wrestling game",
         },
       ],
       type: "website",
@@ -44,7 +48,7 @@ export function buildMetadata({ title, description, path }: PageSeoInput): Metad
       card: "summary_large_image",
       title: pageTitle,
       description: pageDescription,
-      images: [siteConfig.seo.ogImage],
+      images: [socialImage],
     },
     // Google Search Console verification
     ...(siteConfig.analytics.gscVerification
@@ -65,8 +69,33 @@ export function buildVideoGameJsonLd() {
     genre: siteConfig.game.genre,
     applicationCategory: "Game",
     operatingSystem: "Web Browser",
+    gamePlatform: "Web browser",
+    playMode: ["SinglePlayer", "MultiPlayer"],
+    isAccessibleForFree: true,
+    contentRating: siteConfig.game.ageRating,
     description: siteConfig.seo.description,
     url: siteConfig.domain,
     image: `${siteConfig.domain}${siteConfig.seo.ogImage}`,
+    author: {
+      "@type": "Organization",
+      name: "Blue Wizard Digital",
+    },
+  };
+}
+
+export function buildFaqJsonLd(
+  faqs: readonly { question: string; answer: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
   };
 }

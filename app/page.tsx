@@ -1,4 +1,5 @@
-import { buildMetadata, buildVideoGameJsonLd } from "@/lib/seo";
+import { buildFaqJsonLd, buildMetadata, buildVideoGameJsonLd } from "@/lib/seo";
+import { gameFaqs } from "@/lib/game-content";
 import Hero from "@/components/Hero";
 import GameContent from "@/components/GameContent";
 import SidebarLayout from "@/components/SidebarLayout";
@@ -11,6 +12,7 @@ export default function HomePage() {
   return (
     <>
       <SchemaMarkup jsonLd={buildVideoGameJsonLd()} />
+      <SchemaMarkup jsonLd={buildFaqJsonLd(gameFaqs)} />
       <Hero />
       <SidebarLayout>
         {/* Game content sections (intro, gameplay, controls, features, FAQ) */}

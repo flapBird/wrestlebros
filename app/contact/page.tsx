@@ -1,33 +1,41 @@
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site.config";
 
-export const metadata = buildMetadata({ title: "Contact", path: "/contact" });
+export const metadata = buildMetadata({
+  title: "Contact",
+  description:
+    "Contact WrestleBros.xyz to report a broken game embed, incorrect control guide, or other site issue.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-      <h1 className="font-heading font-extrabold text-3xl sm:text-4xl text-text-dark mb-4">
-        Contact Us
-      </h1>
-      <p className="text-text-dark/70 leading-relaxed mb-8">
-        Got feedback? Found a bug with the embed? Want to report a broken game link?
-        Drop us an email and we&rsquo;ll get back to you.
-      </p>
+    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10">
+        <p className="section-kicker">Get in touch</p>
+        <h1 className="mt-2 font-heading text-4xl font-black tracking-tight text-ink">
+          Contact WrestleBros.xyz
+        </h1>
+        <p className="mb-8 mt-5 leading-8 text-slate-700">
+          Use the address below to report a broken game frame, an incorrect control,
+          or a problem with the site.
+        </p>
 
-      <div className="bg-[#f6f3fa] rounded-xl p-6 border border-[#e8e4ef]">
-        <p className="text-sm text-text-dark/60 mb-2">Email us at:</p>
-        <a
-          href={`mailto:${siteConfig.contact.email}`}
-          className="text-primary font-medium text-lg hover:underline"
-        >
-          {siteConfig.contact.email}
-        </a>
+        <div className="rounded-2xl border border-orange-200 bg-orange-50 p-6">
+          <p className="mb-2 text-sm font-bold text-slate-700">Email</p>
+          <a
+            href={`mailto:${siteConfig.contact.email}`}
+            className="break-all text-lg font-extrabold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+          >
+            {siteConfig.contact.email}
+          </a>
+        </div>
+
+        <p className="mt-6 text-sm leading-6 text-slate-600">
+          For loading problems, include the browser, device, and any message shown
+          inside the game frame. Please do not send passwords or other sensitive information.
+        </p>
       </div>
-
-      <p className="mt-6 text-sm text-text-dark/50">
-        We try to respond within a couple of days. If you&rsquo;re reporting a
-        specific issue, mentioning your browser and device helps us narrow things down faster.
-      </p>
     </div>
   );
 }

@@ -40,10 +40,10 @@ Wrestle Bros is an online wrestling game site built with Next.js. It embeds a ph
 │   └── seo.ts                # SEO utilities
 ├── public/                   # Static assets
 │   ├── favicon.ico
-│   ├── og-image.png
+│   ├── og-image-v2.jpg
 │   ├── wrestlebros-desc-1.jpeg
 │   ├── wrestlebros-desc-2.jpeg
-│   └── wrestlebros-desc-3.jpeg
+│   └── ...
 └── .env.example              # Environment variable template
 ```
 
@@ -87,7 +87,7 @@ Recommended: Vercel.
 
 ### Theme Colors
 
-Edit the `theme` section in `lib/site.config.ts`:
+Edit the color tokens in `tailwind.config.ts`:
 
 - `primary` — Main accent color (buttons, links)
 - `secondary` — Secondary accent
@@ -97,7 +97,7 @@ Edit the `theme` section in `lib/site.config.ts`:
 
 ### Images
 
-Replace files in `public/` and update the `coverImage` path in `lib/site.config.ts`.
+Replace files in `public/` and update their references in the relevant component or `lib/site.config.ts`.
 
 ### Game Content
 

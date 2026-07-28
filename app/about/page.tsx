@@ -1,56 +1,62 @@
+import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site.config";
-import Link from "next/link";
 
-export const metadata = buildMetadata({ title: "About", path: "/about" });
+export const metadata = buildMetadata({
+  title: "About",
+  description:
+    "Learn what WrestleBros.xyz covers, who developed Wrestle Bros, and how this independent game guide handles ownership and embeds.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-      <h1 className="font-heading font-extrabold text-3xl sm:text-4xl text-text-dark mb-6">
-        About {siteConfig.siteName}
-      </h1>
-      <div className="space-y-4 text-text-dark/80 leading-relaxed">
+    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10">
+        <p className="section-kicker">About this site</p>
+        <h1 className="mt-2 font-heading text-4xl font-black tracking-tight text-ink">
+          About {siteConfig.siteName}
+        </h1>
 
-        <p>
-          <strong>{siteConfig.siteName}</strong> is a free online browser game that brings
-          physics-based wrestling fights straight to your screen. No downloads, no sign-ups,
-          no waiting around — just pick a wrestler and jump into the ring.
-        </p>
+        <div className="mt-7 space-y-5 text-base leading-8 text-slate-700">
+          <p>
+            Wrestle Bros is a browser wrestling game developed by{" "}
+            <strong className="text-ink">Blue Wizard Digital</strong>. WrestleBros.xyz
+            is an independent site where players can open the game and find a
+            straightforward guide to its modes, controls, and pin mechanic.
+          </p>
 
-        <p>
-          The game is powered by a proper physics engine, so every suplex, body slam, and
-          ring-out feels different. You can play solo against the AI, or grab a friend and
-          battle it out on the same keyboard. It&rsquo;s chaotic, it&rsquo;s fast, and it&rsquo;s
-          the kind of game you end up playing "just one more round" for an hour.
-        </p>
+          <p>
+            The guide is written around the version of the game embedded on the
+            site. If a control or menu changes, we update the relevant instructions
+            rather than keeping an outdated list for search traffic.
+          </p>
 
-        <p>
-          Wrestle Bros was created by <strong>Blue Wizard Digital</strong>, the same team
-          behind Basket Bros and Soccer Bros. If you&rsquo;ve played those, you already know
-          the deal — simple controls, ridiculous physics, and a surprising amount of strategy
-          once you get past the button mashing.
-        </p>
+          <h2 className="pt-3 font-heading text-2xl font-extrabold text-ink">
+            Ownership and attribution
+          </h2>
+          <p>
+            The game, its characters, trademarks, and original game assets belong
+            to their respective owner. We do not present WrestleBros.xyz as the
+            developer’s official website. The playable frame is loaded from the
+            Wrestle Bros game domain and remains under the provider’s control.
+          </p>
 
-        <h2 className="font-heading font-bold text-xl text-text-dark mt-8 mb-3">
-          Why This Site?
-        </h2>
-
-        <p>
-          I put this site together because most wrestling games online are either
-          behind a paywall, require a plugin, or just aren&rsquo;t any fun. Wrestle Bros
-          is free, works on any device with a browser, and actually has real gameplay depth.
-          It deserves a place where people can find it, play it, and share it with friends
-          without jumping through hoops.
-        </p>
-
-        <p>
-          Everything on {siteConfig.domain} is free. If you run into a bug, have a
-          suggestion, or just want to say hi, feel free to{" "}
-          <Link href="/contact" className="text-primary underline">reach out</Link>.
-        </p>
-
-      </div>
+          <h2 className="pt-3 font-heading text-2xl font-extrabold text-ink">
+            Corrections and broken links
+          </h2>
+          <p>
+            If the game stops loading or a guide detail is wrong, please{" "}
+            <Link
+              href="/contact"
+              className="font-bold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
+            >
+              send us a note
+            </Link>
+            . Browser and device details are useful when reporting a loading problem.
+          </p>
+        </div>
+      </article>
     </div>
   );
 }

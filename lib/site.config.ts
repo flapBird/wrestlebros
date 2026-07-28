@@ -1,7 +1,4 @@
-/**
- * Site configuration — the single source of truth for the entire game site.
- * When creating a new game site, only edit this file and replace images in /public.
- */
+/** Shared site, SEO, game, and integration settings. */
 export const siteConfig = {
   /** Display name shown in header, footer, and browser title. */
   siteName: "Wrestle Bros",
@@ -11,20 +8,25 @@ export const siteConfig = {
 
   seo: {
     /** Homepage <title>. Used as-is on the homepage. */
-    title: "Play Wrestle Bros Online Free | Wrestling Bros Game",
+    title: "Wrestle Bros Online – Free Browser Wrestling Game",
 
     /**
      * Homepage meta description, keep under 160 characters.
      * Describe what the game is and that it's free to play online.
      */
     description:
-      "Play Wrestle Bros (also called Wrestling Bros), a physics-based fighting game with multiple modes and custom characters. Free online, no download needed.",
+      "Play Wrestle Bros online for free. Check the controls, learn how to pin an opponent, and use tournament, local two-player, or online game modes.",
 
-    /** Comma-separated keywords for the homepage. */
-    keywords: ["wrestle bros", "wrestling game", "2 player wrestling game", "free online wrestling game", "wrestle bros online", "physics wrestling game", "multiplayer wrestling browser game"],
+    keywords: [
+      "Wrestle Bros",
+      "Wrestle Bros online",
+      "free wrestling game",
+      "two player wrestling game",
+      "browser wrestling game",
+    ],
 
-    /** Social sharing image, 1200x630px. Replace /public/og-image.png. */
-    ogImage: "/og-image.png",
+    /** Social sharing image, 1200x630px. */
+    ogImage: "/og-image-v2.jpg",
 
     /** Twitter/X handle, can be left empty. */
     twitterHandle: "",
@@ -37,34 +39,13 @@ export const siteConfig = {
     /** Genre(s) for JSON-LD VideoGame.genre. e.g. ["Sports", "Basketball"]. */
     genre: ["Fighting", "Sports", "Wrestling"],
 
-    /** iframe embed URL — must be manually replaced with the real embeddable URL. */
+    /** Game embed served by the developer's Wrestle Bros domain. */
     embedUrl: "https://wrestlebros.io/?v=20241120221222",
-
-    /** Aspect ratio of the embedded game, used to prevent CLS. */
-    aspectRatio: "16 / 9",
-
-    /** Cover image shown on the idle/launch screen. Replace /public/cover.jpg. */
-    coverImage: "/wrestlebros-desc-1.jpeg",
 
     /** Age rating for the game. */
     ageRating: "Everyone",
 
-    /** Attribution displayed below the game and in the footer. */
-    sourceAttribution: "Game by Blue Wizard Digital · Official embed",
-  },
-
-  theme: {
-    /**
-     * Bright & playful color palette.
-     * Adjust per-game to match its visual style, but keep the overall bright tone.
-     */
-    primary: "#e85d2c",
-    secondary: "#009bb8",
-    background: "#f0ecf5",
-    surface: "#f6f3fa",
-    textDark: "#292524",
-    fontHeading: "'Nunito', sans-serif",
-    fontBody: "'Quicksand', sans-serif",
+    sourceAttribution: "Wrestle Bros is developed by Blue Wizard Digital",
   },
 
   contact: {

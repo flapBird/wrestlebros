@@ -8,10 +8,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#e85d2c',
-        secondary: '#009bb8',
-        surface: '#f3efe9',
-        'text-dark': '#292524',
+        primary: '#c2410c',
+        secondary: '#0369a1',
+        ink: '#0b1026',
+        background: '#f1f5f9',
+        surface: '#f8fafc',
+        'text-dark': '#1e293b',
       },
       fontFamily: {
         heading: ['var(--font-nunito)', 'sans-serif'],

@@ -2,7 +2,12 @@ import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site.config";
 import LegalPage from "@/components/LegalPage";
 
-export const metadata = buildMetadata({ title: "Terms & Conditions", path: "/terms" });
+export const metadata = buildMetadata({
+  title: "Terms & Conditions",
+  description:
+    "Terms for using WrestleBros.xyz, including game ownership, embedded content, availability, and liability.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

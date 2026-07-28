@@ -7,21 +7,20 @@ interface SidebarLayoutProps {
 
 export default function SidebarLayout({ children }: SidebarLayoutProps) {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+    <div className="mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 sm:pt-12 lg:px-8">
       <div className="flex justify-center gap-8">
-        {/* Left sidebar ad — hidden below xl if ads disabled */}
         {siteConfig.ads.enabled && (
-          <aside className="hidden xl:flex flex-col gap-6 flex-shrink-0">
+          <aside aria-label="Advertisement" className="hidden shrink-0 flex-col gap-6 xl:flex">
             <AdSlot type="sidebar" />
           </aside>
         )}
 
-        {/* Main content */}
-        <div className="flex-1 max-w-4xl min-w-0 bg-[#f6f3fa] rounded-2xl p-6 sm:p-8">{children}</div>
+        <div className="min-w-0 max-w-5xl flex-1 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+          {children}
+        </div>
 
-        {/* Right sidebar ads — hidden below xl if ads disabled */}
         {siteConfig.ads.enabled && (
-          <aside className="hidden xl:flex flex-col gap-6 flex-shrink-0">
+          <aside aria-label="Advertisements" className="hidden shrink-0 flex-col gap-6 xl:flex">
             <AdSlot type="sidebar" />
             <AdSlot type="rectangle" />
           </aside>
