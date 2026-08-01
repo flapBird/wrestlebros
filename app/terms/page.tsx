@@ -1,5 +1,6 @@
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site.config";
+import EmailAddress from "@/components/EmailAddress";
 import LegalPage from "@/components/LegalPage";
 
 export const metadata = buildMetadata({
@@ -49,7 +50,10 @@ export default function TermsPage() {
 
       <section>
         <h2 className="font-heading font-bold text-xl text-text-dark mt-8 mb-3">8. Contact</h2>
-        <p>Questions about these terms? Email{" "}<a href={`mailto:${siteConfig.contact.email}`} className="text-primary underline">{siteConfig.contact.email}</a>.</p>
+        <p>
+          Questions about these terms? Email{" "}
+          <EmailAddress email={siteConfig.contact.email} className="text-primary" />.
+        </p>
       </section>
     </LegalPage>
   );

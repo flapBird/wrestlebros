@@ -18,14 +18,15 @@ export function buildMetadata({ title, description, path }: PageSeoInput): Metad
       ? `${title} | ${siteConfig.siteName}`
       : siteConfig.siteName;
   const pageDescription = description ?? siteConfig.seo.description;
-  const canonical = `${siteConfig.domain}${path}`;
+  // Keep absolute URLs as strings so Next preserves the homepage's trailing slash.
+  const canonical = isHome
+    ? `${siteConfig.domain}/`
+    : `${siteConfig.domain}${path}`;
   const socialImage = `${siteConfig.domain}${siteConfig.seo.ogImage}`;
 
   return {
-    metadataBase: new URL(siteConfig.domain),
     title: pageTitle,
     description: pageDescription,
-    keywords: [...siteConfig.seo.keywords],
     alternates: {
       canonical,
     },
@@ -74,7 +75,7 @@ export function buildVideoGameJsonLd() {
     isAccessibleForFree: true,
     contentRating: siteConfig.game.ageRating,
     description: siteConfig.seo.description,
-    url: siteConfig.domain,
+    url: `${siteConfig.domain}/`,
     image: `${siteConfig.domain}${siteConfig.seo.ogImage}`,
     author: {
       "@type": "Organization",

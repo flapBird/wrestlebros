@@ -1,5 +1,6 @@
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site.config";
+import EmailAddress from "@/components/EmailAddress";
 
 export const metadata = buildMetadata({
   title: "Contact",
@@ -23,12 +24,10 @@ export default function ContactPage() {
 
         <div className="rounded-2xl border border-orange-200 bg-orange-50 p-6">
           <p className="mb-2 text-sm font-bold text-slate-700">Email</p>
-          <a
-            href={`mailto:${siteConfig.contact.email}`}
-            className="break-all text-lg font-extrabold text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
-          >
-            {siteConfig.contact.email}
-          </a>
+          <EmailAddress
+            email={siteConfig.contact.email}
+            className="break-all text-lg font-extrabold text-primary"
+          />
         </div>
 
         <p className="mt-6 text-sm leading-6 text-slate-600">

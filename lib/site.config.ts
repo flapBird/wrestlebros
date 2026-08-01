@@ -17,14 +17,6 @@ export const siteConfig = {
     description:
       "Play Wrestle Bros online for free. Check the controls, learn how to pin an opponent, and use tournament, local two-player, or online game modes.",
 
-    keywords: [
-      "Wrestle Bros",
-      "Wrestle Bros online",
-      "free wrestling game",
-      "two player wrestling game",
-      "browser wrestling game",
-    ],
-
     /** Social sharing image, 1200x630px. */
     ogImage: "/og-image-v2.jpg",
 
