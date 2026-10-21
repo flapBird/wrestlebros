@@ -1,7 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 import AdsterraNative from "./AdsterraNative";
 import FaqList from "./FaqList";
-import { gameFaqs } from "@/lib/game-content";
+import GuideLinks from "./GuideLinks";
+import {
+  gameFaqs,
+  soloControls,
+  twoPlayerControls,
+  type ControlRow,
+} from "@/lib/game-content";
 
 const modeCards = [
   {
@@ -101,6 +108,17 @@ export default function GameContent() {
           ))}
         </ol>
 
+        <p className="prose-copy mt-6 max-w-3xl">
+          The pin is the part most new players rush. See{" "}
+          <Link
+            href="/wrestle-bros-how-to-pin"
+            className="font-bold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
+          >
+            how to pin in Wrestle Bros
+          </Link>{" "}
+          for the three-step sequence and the timing window.
+        </p>
+
         <Image
           src="/wrestlebros-desc-02.png"
           alt="A successful suplex during a Wrestle Bros match"
@@ -144,28 +162,24 @@ export default function GameContent() {
         </p>
 
         <div className="mt-7 grid gap-5 md:grid-cols-2">
-          <ControlCard
-            badge="Solo"
-            badgeClass="bg-primary"
-            rows={[
-              ["Move", "A / D or ← / →"],
-              ["Jump", "W or ↑"],
-              ["Block", "S or ↓"],
-              ["Action", "Space or Enter"],
-              ["Pin", "Double jump"],
-            ]}
-          />
+          <ControlCard badge="Solo" badgeClass="bg-primary" rows={soloControls} />
           <ControlCard
             badge="Local 2P"
             badgeClass="bg-secondary"
-            rows={[
-              ["Player 1 move", "W A S D"],
-              ["Player 1 action", "G"],
-              ["Player 2 move", "Arrow Keys"],
-              ["Player 2 action", "L"],
-            ]}
+            rows={twoPlayerControls}
           />
         </div>
+        <p className="prose-copy mt-6">
+          For what each key does, the two-player layout, and fixes when the keyboard
+          is ignored, read the{" "}
+          <Link
+            href="/wrestle-bros-controls"
+            className="font-bold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
+          >
+            full Wrestle Bros controls guide
+          </Link>
+          .
+        </p>
       </section>
 
       <section className="content-section" aria-labelledby="quick-tips">
@@ -201,6 +215,8 @@ export default function GameContent() {
           <FaqList faqs={gameFaqs} />
         </div>
       </section>
+
+      <GuideLinks />
     </article>
   );
 }
@@ -212,7 +228,7 @@ function ControlCard({
 }: {
   badge: string;
   badgeClass: string;
-  rows: Array<[string, string]>;
+  rows: readonly ControlRow[];
 }) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-5">

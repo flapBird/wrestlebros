@@ -1,3 +1,20 @@
+export type ControlRow = readonly [label: string, keys: string];
+
+export const soloControls: readonly ControlRow[] = [
+  ["Move", "A / D or ← / →"],
+  ["Jump", "W or ↑"],
+  ["Block", "S or ↓"],
+  ["Action", "Space or Enter"],
+  ["Pin", "Double jump"],
+];
+
+export const twoPlayerControls: readonly ControlRow[] = [
+  ["Player 1 move", "W A S D"],
+  ["Player 1 action", "G"],
+  ["Player 2 move", "Arrow keys"],
+  ["Player 2 action", "L"],
+];
+
 export const gameFaqs = [
   {
     question: "Is Wrestle Bros free to play?",

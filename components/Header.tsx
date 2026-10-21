@@ -3,7 +3,8 @@ import { siteConfig } from "@/lib/site.config";
 
 const navLinks = [
   { href: "/#how-to-play", label: "How to Play" },
-  { href: "/#controls", label: "Controls" },
+  { href: "/wrestle-bros-controls", label: "Controls" },
+  { href: "/#guides", label: "Guides" },
   { href: "/#faq", label: "FAQ" },
 ];
 

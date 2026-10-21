@@ -15,7 +15,9 @@ export function buildMetadata({ title, description, path }: PageSeoInput): Metad
   const pageTitle = isHome
     ? siteConfig.seo.title
     : title
-      ? `${title} | ${siteConfig.siteName}`
+      ? title.includes(siteConfig.siteName)
+        ? title
+        : `${title} | ${siteConfig.siteName}`
       : siteConfig.siteName;
   const pageDescription = description ?? siteConfig.seo.description;
   // Keep absolute URLs as strings so Next preserves the homepage's trailing slash.
@@ -98,5 +100,59 @@ export function buildFaqJsonLd(
         text: faq.answer,
       },
     })),
+  };
+}
+
+export function buildBreadcrumbJsonLd(
+  items: readonly { name: string; path: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${siteConfig.domain}${item.path}`,
+    })),
+  };
+}
+
+export function buildArticleJsonLd({
+  path,
+  title,
+  description,
+  updated,
+}: {
+  path: string;
+  title: string;
+  description: string;
+  updated: string;
+}) {
+  const url = `${siteConfig.domain}${path}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    url,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+    datePublished: updated,
+    dateModified: updated,
+    image: `${siteConfig.domain}${siteConfig.seo.ogImage}`,
+    author: {
+      "@type": "Organization",
+      name: siteConfig.siteName,
+      url: `${siteConfig.domain}/`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.siteName,
+      url: `${siteConfig.domain}/`,
+    },
   };
 }
