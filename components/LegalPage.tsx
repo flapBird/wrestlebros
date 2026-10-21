@@ -1,4 +1,5 @@
 import { siteConfig } from "@/lib/site.config";
+import AdsterraNative from "@/components/AdsterraNative";
 
 interface LegalPageProps {
   title: string;
@@ -21,6 +22,7 @@ export default function LegalPage({ title, children }: LegalPageProps) {
         <div className="space-y-4 leading-7 text-slate-700">
           {children}
         </div>
+        <AdsterraNative className="mt-10" />
       </article>
     </div>
   );

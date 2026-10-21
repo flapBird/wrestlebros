@@ -1,5 +1,6 @@
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site.config";
+import AdsterraNative from "@/components/AdsterraNative";
 import EmailAddress from "@/components/EmailAddress";
 
 export const metadata = buildMetadata({
@@ -34,6 +35,8 @@ export default function ContactPage() {
           For loading problems, include the browser, device, and any message shown
           inside the game frame. Please do not send passwords or other sensitive information.
         </p>
+
+        <AdsterraNative className="mt-8" />
       </div>
     </div>
   );

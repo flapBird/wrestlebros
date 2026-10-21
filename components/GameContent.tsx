@@ -1,4 +1,5 @@
 import Image from "next/image";
+import AdsterraNative from "./AdsterraNative";
 import FaqList from "./FaqList";
 import { gameFaqs } from "@/lib/game-content";
 
@@ -66,6 +67,10 @@ export default function GameContent() {
           className="mt-7 h-auto w-full rounded-2xl border border-slate-200 shadow-sm"
         />
       </section>
+
+      <div className="content-section">
+        <AdsterraNative />
+      </div>
 
       <section
         id="how-to-play"

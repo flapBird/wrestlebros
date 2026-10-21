@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site.config";
+import AdsterraNative from "@/components/AdsterraNative";
 
 export const metadata = buildMetadata({
   title: "About",
@@ -41,6 +42,8 @@ export default function AboutPage() {
             developer’s official website. The playable frame is loaded from the
             Wrestle Bros game domain and remains under the provider’s control.
           </p>
+
+          <AdsterraNative className="my-2" />
 
           <h2 className="pt-3 font-heading text-2xl font-extrabold text-ink">
             Corrections and broken links
